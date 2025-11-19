@@ -41,6 +41,9 @@ public class Fecha implements Cloneable {
 	public int getDia() {return dia;};
 	public int getMes() {return mes;};
 	public int getAnio() {return anio;};
+	public void setDia(int d) {dia=d;};
+	public void setMes(int m) {mes=m;};
+	public void setAnio(int a) {anio=a;};
 	
 	public String toString()
 	{
@@ -121,6 +124,7 @@ public class Fecha implements Cloneable {
 		}catch(CloneNotSupportedException ex) {
 			System.out.println("No se puede duplicar");
 		}
+		return obj;
 	}
 	
 	public boolean equals(Object obj)
