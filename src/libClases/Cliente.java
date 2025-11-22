@@ -1,7 +1,7 @@
 package libClases;
 
 public class Cliente implements Cloneable,Proceso {
-	private static int contador=0;
+	private static int contador=1;
 	private final String nif;
 	private final int codCliente;
 	private String nombre;

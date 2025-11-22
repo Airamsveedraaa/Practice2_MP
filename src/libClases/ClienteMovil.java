@@ -56,6 +56,11 @@ public class ClienteMovil extends Cliente{
 	{
 		return Precio*minutosHablados;
 	}
+	
+	public Object Clone()
+	{
+		return new ClienteMovil(this);
+	}
 
 	public String toString()
 	{
