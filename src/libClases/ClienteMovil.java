@@ -52,21 +52,25 @@ public class ClienteMovil extends Cliente{
 		this.Precio=p;
 	}
 	
+	@Override
 	public float factura()
 	{
 		return Precio*minutosHablados;
 	}
 	
+	@Override
 	public Object Clone()
 	{
 		return new ClienteMovil(this);
 	}
 
+	@Override
 	public String toString()
 	{
-		return super.toString() + " " + permanencia + " " + minutosHablados + " x " + Precio +  " --->" + factura();
+		return super.toString() + " " + permanencia + " " + minutosHablados + " x " + Precio +  " -->" + factura();
 	}
 	
+	@Override
 	public boolean equals(Object o)
 	{
 		return o instanceof ClienteMovil && getNIF().equals(((Cliente)o).getNIF());

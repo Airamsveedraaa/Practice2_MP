@@ -15,8 +15,8 @@ public class Cliente implements Cloneable,Proceso {
 	{
 		this.nif=NIF;
 		this.nombre=nom;
-		this.fechaNac=fNac;
-		this.fechaAlta=fAlta;
+		this.fechaNac=(Fecha)fNac.Clone();
+		this.fechaAlta=(Fecha)fAlta.Clone();
 		this.codCliente=contador++;
 	}
 	

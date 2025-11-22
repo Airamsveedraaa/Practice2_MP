@@ -27,6 +27,8 @@ public class ClienteTarifaPlana extends Cliente{
 	public ClienteTarifaPlana(Cliente c)
 	{
 		super(c);
+		this.minutosHablados=0;
+		this.nacionalidad="";
 	}
 	
 	
@@ -54,6 +56,7 @@ public class ClienteTarifaPlana extends Cliente{
 	public float getMinutosHablados() {return minutosHablados;};
 	
 	
+	@Override
 	public float factura()
 	{
 		float total=PrecioMinutos;
@@ -63,16 +66,19 @@ public class ClienteTarifaPlana extends Cliente{
 		return total;
 	}
 	
+	@Override
 	public String toString()
 	{
-		return super.toString() + " " + nacionalidad + " [" + Minutos + " por" + PrecioMinutos + " ]" + "---> " + factura();
+		return super.toString() + " " + nacionalidad + " [" + ((float)Minutos) + " por " + PrecioMinutos + " ]" + minutosHablados + " --> " + factura();
 	}
 	
+	@Override
 	public Object Clone()
 	{
 		return new ClienteTarifaPlana(getNIF(),getNombre(),getFechaNac(),getFechaAlta(),getMinutosHablados(),getNacionalidad());
 	}
 	
+	@Override
 	public boolean equals(Object o)
 	{
 		return o instanceof ClienteTarifaPlana && getNIF().equals(((ClienteTarifaPlana)o).getNIF());
