@@ -101,7 +101,6 @@ public final class Fecha implements Cloneable,Proceso {
 			}
 			
 		}while(!valida);
-		sc.close();
 		return fecha;
 	}
 	
