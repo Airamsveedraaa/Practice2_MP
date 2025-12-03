@@ -123,10 +123,10 @@ public class Empresa implements Cloneable,Proceso{
 			return; //si no hay clientes pa que busco
 		int pos=BuscarCliente(dni);
 		if(pos!=-1) {
-		for(int i=0;i<nclientes;i++) {
+		for(int i=pos;i<nclientes-1;i++) {
 			clientes[i]=clientes[i+1];
-			nclientes--;
 		}
+		nclientes--;
 		if(nclientes < clientes.length / 2) {
 			Cliente [] temp=new Cliente[nmaxclientes/2];
 			for(int i=0;i<nclientes;i++) {
@@ -208,15 +208,14 @@ public class Empresa implements Cloneable,Proceso{
 	
 	
 	public void descuento(int desc) {
-		float descuento= (float) (100-desc/100); //% de descuento
-		float precio=0;
-		for(int i=0;i<this.getNClientes();i++) {
-			if(clientes[i] instanceof ClienteMovil) {
-				ClienteMovil c=(ClienteMovil)clientes[i];
-				precio=c.getPrecio()*desc;
-				c.setPrecio(precio);
-			}
-		}
+	    for(int i=0; i<this.getNClientes(); i++) {
+	        if(clientes[i] instanceof ClienteMovil) {
+	            ClienteMovil c = (ClienteMovil)clientes[i];
+	            float precioActual = c.getPrecio();
+	            float nuevoPrecio = precioActual * (100 - desc) / 100.0f;  // ✅
+	            c.setPrecio(nuevoPrecio);
+	        }
+	    }
 	}
 	
 	
